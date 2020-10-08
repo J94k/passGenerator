@@ -4,7 +4,7 @@ const passOutput = document.querySelector('.generator__out-password');
 const passBtn = document.querySelector('.generator__btn-pass');
 const lengthPass = document.querySelector('#length-password');
 const passLengthCounter = document.querySelector('#password-length-counter');
-const chackboxList = document.querySelector('.generator__options-list');
+const checkboxList = document.querySelector('.generator__options-list');
 const arrCheckboxes = [...document.querySelectorAll('input[type=checkbox]')];
 
 const btnCopyPass = document.querySelector('.generator__copy-pass-btn');
@@ -41,7 +41,7 @@ function showLengthPassword() {
 passBtn.onclick = () => {
   passOutput.removeAttribute('disabled');
   passOutput.classList.remove('void');
-  chackboxList.classList.remove('error');
+  checkboxList.classList.remove('error');
 
   if (checksCheckboxes(arrCheckboxes)) {
     const arrSelectedArrays = [];
@@ -57,7 +57,7 @@ passBtn.onclick = () => {
     passOutput.value = password;
     addToHistory(password);
   } else {
-    chackboxList.classList.add('error');
+    checkboxList.classList.add('error');
   }
 };
 
@@ -96,7 +96,6 @@ function addToHistory(password) {
 
   li.className = 'history-pass__item';
   li.textContent = password;
-
   historyList.append(li);
 }
 
