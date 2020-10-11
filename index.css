@@ -43,6 +43,7 @@ ul {
 }
 
 body {
+    min-height: 45em;
     height: 100vh;
     margin: 0;
     padding: 3% 7%;
@@ -63,8 +64,7 @@ body {
 .generator {
     position: relative;
     height: 100%;
-    padding-top: 10em;
-    padding-left: 4em;
+    padding: 5% 0 0 5%;
     display: flex;
     flex-direction: column;
     border-left: .1em solid var(--gray);
@@ -94,6 +94,7 @@ body {
 .generator__copy-pass-btn {
     position: relative;
     padding: .8em;
+    margin-bottom: 1em;
     border-radius: .3em;
     font-size: 1.4em;
     border: none;
@@ -172,85 +173,12 @@ body {
 }
 
 #length-password {
-    width: 30%;
+    width: 10em;
 }
 
 #password-length-counter {
     margin-left: .5em;
     color:  var(--yellow);
-}
-
-.history-pass {
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    background-color: var(--background);
-}
-
-.history-pass__list {
-    height: 100%;
-    margin: 0;
-    padding: 1em 0;
-    overflow: auto;
-    border-radius: 0 .4em .4em 0;
-    border: .1em solid var(--gray);
-    border-left: none;
-    visibility: visible;
-    opacity: 1;
-    transition: .5s;
-    list-style: none;
-    counter-reset: my-counter;
-}
-
-.history-pass__list li {
-  counter-increment: my-counter;
-}
-.history-pass__list li::before {
-  content: counter(my-counter) ") ";
-  color: var(--yellow);
-}
-
-.history-pass__list.hide {
-    width: 0;
-    opacity: 0;
-    visibility: hidden;
-}
-
-.history-pass__list li + li {
-    margin-top: .8em;
-}
-
-.history-pass__item {
-    margin-left: 2em;
-    margin-right: 2em;
-}
-
-.history-pass__toggle {
-    position: absolute;
-    right: -2em;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2em;
-    height: 2em;
-    border: none;
-    color: var(--gray);
-    background-color: transparent;
-    transition: .3s;
-}
-
-.history-pass__toggle.reverse {
-    transform: translateY(-50%) rotate(180deg);
-}
-
-.history-pass__toggle:hover {
-    color: inherit;
-}
-
-.history-pass__toggle:active {
-    width: 2em;
-    height: 2em;
 }
 
 .footer {

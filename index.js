@@ -89,23 +89,4 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-const historyList = document.querySelector('.history-pass__list');
-
-function addToHistory(password) {
-  const li = document.createElement('li');
-
-  li.className = 'history-pass__item';
-  li.textContent = password;
-  historyList.append(li);
-}
-
-const historyToggle = document.querySelector('.history-pass__toggle');
-
-historyToggle.onclick = () => {
-  if (historyList.hasChildNodes()) {
-    historyToggle.classList.toggle('reverse');
-    historyList.classList.toggle('hide');
-  }
-};
-
 document.querySelector('.footer__date').textContent = new Date().getFullYear();

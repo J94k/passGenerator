@@ -13,11 +13,6 @@
 
     <main class="main">
       <section class="generator">
-        <div class="history-pass">
-          <ol class="history-pass__list hide"></ol>
-          <button class="history-pass__toggle">►</button>
-        </div>
-
         <div class="generator__container-output">
           <input
             type="text"
@@ -41,8 +36,8 @@
               <input
                 type="range"
                 min="1"
-                max="57"
-                value="11"
+                max="113"
+                value="16"
                 id="length-password"
                 data-clipboard-text="click text"
               />
@@ -65,6 +60,7 @@
                 type="checkbox"
                 value="lowerLetters"
                 id="checkbox-lowerLetters"
+                checked
               />
               <label for="checkbox-lowerLetters" class="fake-checkbox"
                 >Lower letters</label
@@ -75,13 +71,14 @@
                 type="checkbox"
                 value="upperLetters"
                 id="checkbox-upperLetters"
+                checked
               />
               <label for="checkbox-upperLetters" class="fake-checkbox"
                 >Upper letters</label
               >
             </li>
             <li>
-              <input type="checkbox" value="simbols" id="checkbox-simbols" />
+              <input type="checkbox" value="simbols" id="checkbox-simbols" checked/>
               <label for="checkbox-simbols" class="fake-checkbox"
                 >Special simbols</label
               >
