@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PassGen</title>
     <link rel="stylesheet" href="index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
+
   <body>
-    <header class="header">
-      <h1 class="header__title">Password Generator</h1>
+    <header>
+      <h1>You need strong password</h1>
     </header>
 
     <main class="main">
@@ -22,12 +23,6 @@
             placeholder="Password..."
             disabled
           />
-          <button
-            class="generator__copy-pass-btn"
-            data-clipboard-target="#password-field"
-          >
-            Copy
-          </button>
           <button class="generator__btn-pass">Generate</button>
         </div>
         <div class="generator__container-options">
@@ -36,7 +31,7 @@
               <input
                 type="range"
                 min="1"
-                max="113"
+                max="512"
                 value="16"
                 id="length-password"
                 data-clipboard-text="click text"
@@ -45,54 +40,26 @@
               <span id="password-length-counter"></span>
             </li>
             <li>
-              <input
-                type="checkbox"
-                value="numbers"
-                id="checkbox-numbers"
-                checked
-              />
-              <label for="checkbox-numbers" class="fake-checkbox"
-                >Numbers</label
-              >
+              <input type="checkbox" value="numbers" id="checkbox-numbers" checked />
+              <label for="checkbox-numbers" class="fake-checkbox">Numbers</label>
             </li>
             <li>
-              <input
-                type="checkbox"
-                value="lowerLetters"
-                id="checkbox-lowerLetters"
-                checked
-              />
-              <label for="checkbox-lowerLetters" class="fake-checkbox"
-                >Lower letters</label
-              >
+              <input type="checkbox" value="lowerLetters" id="checkbox-lowerLetters" checked />
+              <label for="checkbox-lowerLetters" class="fake-checkbox">Lower letters</label>
             </li>
             <li>
-              <input
-                type="checkbox"
-                value="upperLetters"
-                id="checkbox-upperLetters"
-                checked
-              />
-              <label for="checkbox-upperLetters" class="fake-checkbox"
-                >Upper letters</label
-              >
+              <input type="checkbox" value="upperLetters" id="checkbox-upperLetters" checked />
+              <label for="checkbox-upperLetters" class="fake-checkbox">Upper letters</label>
             </li>
             <li>
-              <input type="checkbox" value="simbols" id="checkbox-simbols" checked/>
-              <label for="checkbox-simbols" class="fake-checkbox"
-                >Special simbols</label
-              >
+              <input type="checkbox" value="simbols" id="checkbox-simbols" checked />
+              <label for="checkbox-simbols" class="fake-checkbox">Special simbols</label>
             </li>
           </ul>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <p class="footer__date"></p>
-    </footer>
-
-    <script src="clipboard.min.js"></script>
     <script src="index.js"></script>
   </body>
 </html>

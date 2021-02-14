@@ -7,22 +7,9 @@ const passLengthCounter = document.querySelector('#password-length-counter');
 const checkboxList = document.querySelector('.generator__options-list');
 const arrCheckboxes = [...document.querySelectorAll('input[type=checkbox]')];
 
-const btnCopyPass = document.querySelector('.generator__copy-pass-btn');
-let clipboard = null;
-
-btnCopyPass.addEventListener('mousemove', (event) => {
-  passOutput.value === ''
-    ? event.preventDefault()
-    : (clipboard = new ClipboardJS(btnCopyPass));
-});
-
 const numbers = [...Array(10).keys()].map((i) => String.fromCharCode(i + 48));
-const lowerLetters = [...Array(26).keys()].map((i) =>
-  String.fromCharCode(i + 97)
-);
-const upperLetters = [...Array(26).keys()].map((i) =>
-  String.fromCharCode(i + 65)
-);
+const lowerLetters = [...Array(26).keys()].map((i) => String.fromCharCode(i + 97));
+const upperLetters = [...Array(26).keys()].map((i) => String.fromCharCode(i + 65));
 const specSimbols = [...Array(15).keys()]
   .map((i) => String.fromCharCode(i + 33))
   .concat([...Array(7).keys()].map((i) => String.fromCharCode(i + 58)))
@@ -55,7 +42,6 @@ passBtn.onclick = () => {
     const password = generatePassword(arrSelectedArrays);
 
     passOutput.value = password;
-    addToHistory(password);
   } else {
     checkboxList.classList.add('error');
   }
@@ -88,5 +74,3 @@ function generatePassword(arrSelectedArrays) {
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
-
-document.querySelector('.footer__date').textContent = new Date().getFullYear();
