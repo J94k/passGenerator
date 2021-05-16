@@ -1,3 +1,5 @@
-# Password Generator
+# Password Generator (Firefox extension)
 
-[Check it](https://noteternal.github.io/passGenerator)
+[Live version](https://noteternal.github.io/passGenerator)
+
+<!-- [Firefox extension](https://noteternal.github.io/passGenerator) -->
