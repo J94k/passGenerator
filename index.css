@@ -12,12 +12,17 @@
 }
 
 html {
-  min-width: 50px;
-  min-height: 120px;
-  padding: 1.4em;
+  min-width: 46px;
+  min-height: 100px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: 'Roboto Mono', border-box;
   font-family: sans-serif;
   letter-spacing: 0.1em;
+  border: none;
 
   --black: #050505;
   --dark: #111;
