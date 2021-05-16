@@ -8,8 +8,12 @@ const checkboxList = document.querySelector('.generator__options-list');
 const arrCheckboxes = [...document.querySelectorAll('input[type=checkbox]')];
 
 const numbers = [...Array(10).keys()].map((i) => String.fromCharCode(i + 48));
-const lowerLetters = [...Array(26).keys()].map((i) => String.fromCharCode(i + 97));
-const upperLetters = [...Array(26).keys()].map((i) => String.fromCharCode(i + 65));
+const lowerLetters = [...Array(26).keys()].map((i) =>
+  String.fromCharCode(i + 97)
+);
+const upperLetters = [...Array(26).keys()].map((i) =>
+  String.fromCharCode(i + 65)
+);
 const specSimbols = [...Array(15).keys()]
   .map((i) => String.fromCharCode(i + 33))
   .concat([...Array(7).keys()].map((i) => String.fromCharCode(i + 58)))
