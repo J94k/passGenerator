@@ -19,21 +19,22 @@
             placeholder="Password..."
             disabled
           />
-          <button class="generator__btn-pass">Generate</button>
+          <div class="generator__buttons-wrapper">
+            <button class="generator__btn-pass">Generate</button>
+            <button class="generator__btn-copy">Copy</button>
+          </div>
         </div>
         <div class="generator__container-options">
           <ul class="generator__options-list">
-            <li>
+            <li class="generator__length-option">
+              <label for="length-password">Length</label>
               <input
-                type="range"
                 min="1"
                 max="512"
-                value="16"
+                value="23"
                 id="length-password"
                 data-clipboard-text="click text"
               />
-              <label for="length-password">Length</label>
-              <span id="password-length-counter"></span>
             </li>
             <li>
               <input

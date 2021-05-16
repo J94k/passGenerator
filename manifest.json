@@ -4,6 +4,7 @@
   "description": "Simple and fast password generator for your browser",
   "version": "1",
   "icons": {
+    "32": "icons/key32.png",
     "48": "icons/key48.png"
   },
   "background": {
