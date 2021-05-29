@@ -10,76 +10,115 @@
   <body>
     <main class="main">
       <section class="generator">
-        <div class="generator__container-output">
-          <input
-            type="text"
-            id="password-field"
-            value=""
-            class="generator__out-password void"
-            placeholder="Password..."
-            disabled
-          />
-          <div class="generator__buttons-wrapper">
-            <button class="generator__btn-pass">Generate</button>
-            <button class="generator__btn-copy">Copy</button>
+        <div class="generator__header">
+          <button class="generator__header-tab">Password</button>
+          <button class="generator__header-tab">Phrase</button>
+        </div>
+
+        <section class="generator__section">
+          <div class="generator__container-output">
+            <input
+              type="text"
+              id="password-field"
+              value=""
+              class="generator__output pass void"
+              placeholder="Password..."
+              disabled
+            />
+            <div class="generator__buttons-wrapper">
+              <button class="generator__btn pass">Generate</button>
+              <button class="generator__btn copy-pass">Copy</button>
+            </div>
           </div>
-        </div>
-        <div class="generator__container-options">
-          <ul class="generator__options-list">
-            <li class="generator__length-option">
-              <label for="length-password">Length</label>
-              <input
-                value="23"
-                id="length-password"
-                data-clipboard-text="click text"
-              />
-            </li>
-            <li>
-              <input
-                type="checkbox"
-                value="numbers"
-                id="checkbox-numbers"
-                checked
-              />
-              <label for="checkbox-numbers" class="fake-checkbox"
-                >Numbers</label
-              >
-            </li>
-            <li>
-              <input
-                type="checkbox"
-                value="lowerLetters"
-                id="checkbox-lowerLetters"
-                checked
-              />
-              <label for="checkbox-lowerLetters" class="fake-checkbox"
-                >Lower letters</label
-              >
-            </li>
-            <li>
-              <input
-                type="checkbox"
-                value="upperLetters"
-                id="checkbox-upperLetters"
-                checked
-              />
-              <label for="checkbox-upperLetters" class="fake-checkbox"
-                >Upper letters</label
-              >
-            </li>
-            <li>
-              <input
-                type="checkbox"
-                value="simbols"
-                id="checkbox-simbols"
-                checked
-              />
-              <label for="checkbox-simbols" class="fake-checkbox"
-                >Special simbols</label
-              >
-            </li>
-          </ul>
-        </div>
+          <div class="generator__container-options">
+            <ul class="generator__options-list">
+              <li class="generator__length-option">
+                <label for="length-password">Length</label>
+                <input
+                  value="23"
+                  class="length"
+                  id="length-password"
+                  data-clipboard-text="click text"
+                />
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  value="numbers"
+                  id="checkbox-numbers"
+                  checked
+                />
+                <label for="checkbox-numbers" class="fake-checkbox"
+                  >Numbers</label
+                >
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  value="lowerLetters"
+                  id="checkbox-lowerLetters"
+                  checked
+                />
+                <label for="checkbox-lowerLetters" class="fake-checkbox"
+                  >Lower letters</label
+                >
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  value="upperLetters"
+                  id="checkbox-upperLetters"
+                  checked
+                />
+                <label for="checkbox-upperLetters" class="fake-checkbox"
+                  >Upper letters</label
+                >
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  value="simbols"
+                  id="checkbox-simbols"
+                  checked
+                />
+                <label for="checkbox-simbols" class="fake-checkbox"
+                  >Special simbols</label
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="generator__section hidden">
+          <div class="generator__container-output">
+            <input
+              type="text"
+              id="phrase-field"
+              value=""
+              class="generator__output phrase void"
+              placeholder="Phrase..."
+              disabled
+            />
+            <div class="generator__buttons-wrapper">
+              <button class="generator__btn phrase">Generate</button>
+              <button class="generator__btn copy-phrase">Copy</button>
+            </div>
+          </div>
+
+          <div class="generator__container-options">
+            <ul class="generator__options-list">
+              <li class="generator__length-option">
+                <label for="length-phrase">Length</label>
+                <input
+                  value="5"
+                  class="length"
+                  id="length-phrase"
+                  data-clipboard-text="click text"
+                />
+              </li>
+            </ul>
+          </div>
+        </section>
       </section>
     </main>
 

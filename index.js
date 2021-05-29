@@ -1,11 +1,21 @@
 'use strict';
 
-const passOutput = document.querySelector('.generator__out-password');
-const passBtn = document.querySelector('.generator__btn-pass');
-const copyBtn = document.querySelector('.generator__btn-copy');
+const arrOfHeaderTabs = [
+  ...document.querySelectorAll('.generator__header-tab'),
+];
+const arrOfSections = [...document.querySelectorAll('.generator__section')];
+
+const passOutput = document.querySelector('.generator__output.pass');
+const passGenerateBtn = document.querySelector('.generator__btn.pass');
+const passCopyBtn = document.querySelector('.generator__btn.copy-pass');
 const lengthPass = document.querySelector('#length-password');
 const checkboxList = document.querySelector('.generator__options-list');
 const arrCheckboxes = [...document.querySelectorAll('input[type=checkbox]')];
+
+const phraseOutput = document.querySelector('.generator__output.phrase');
+const phraseGenerateBtn = document.querySelector('.generator__btn.phrase');
+const phraseCopyBtn = document.querySelector('.generator__btn.copy-phrase');
+const lengthPhrase = document.querySelector('#length-phrase');
 
 const numbers = [...Array(10).keys()].map((i) => String.fromCharCode(i + 48));
 const lowerLetters = [...Array(26).keys()].map((i) =>
@@ -22,7 +32,22 @@ const specSymbols = [...Array(15).keys()]
 
 const arrCharsArrays = [numbers, lowerLetters, upperLetters, specSymbols];
 
-passBtn.onclick = () => {
+arrOfHeaderTabs.forEach((tab) => {
+  tab.addEventListener('click', () => {
+    arrOfHeaderTabs.map((changeableTab) => {
+      const targetIndex = arrOfHeaderTabs.indexOf(changeableTab);
+      const isTargetTab = targetIndex === arrOfHeaderTabs.indexOf(tab);
+
+      if (isTargetTab) {
+        arrOfSections[targetIndex].classList.remove('hidden');
+      } else {
+        arrOfSections[targetIndex].classList.add('hidden');
+      }
+    });
+  });
+});
+
+passGenerateBtn.onclick = () => {
   passOutput.removeAttribute('disabled');
   passOutput.classList.remove('void');
   checkboxList.classList.remove('error');
@@ -72,7 +97,7 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-copyBtn.onclick = () => {
+passCopyBtn.onclick = () => {
   copyToClipboard(passOutput.value);
 };
 
@@ -99,25 +124,40 @@ function copyToClipboard(str) {
   }
 }
 
-function readTextFile(file) {
+phraseGenerateBtn.onclick = () => {
+  phraseOutput.removeAttribute('disabled');
+  phraseOutput.classList.remove('void');
+
+  generatePassPhrase('./english.txt');
+};
+
+function generatePassPhrase(file) {
   const rawFile = new XMLHttpRequest();
-  const okStatus = 200;
+  const successStatus = 200;
+  // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/onreadystatechange
+  const successFirefoxStatus = 0;
 
   rawFile.open('GET', file, false);
   rawFile.onreadystatechange = () => {
-    if (rawFile.readyState === 4) {
-      if (rawFile.status === okStatus || rawFile.status === 0) {
-        return rawFile.responseText.split('\n');
+    if (rawFile.readyState === XMLHttpRequest.DONE) {
+      if (
+        rawFile.status === successStatus ||
+        rawFile.status === successFirefoxStatus
+      ) {
+        const phrase = returnPassPhrase({
+          words: rawFile.responseText.split('\n'),
+          phraseLength: lengthPhrase.value,
+        });
+
+        phraseOutput.value = phrase;
       }
     }
-
-    return false;
   };
   rawFile.send(null);
 }
 
-function generatePassPhrase(phraseLength = 4) {
-  const words = readTextFile('./english.txt');
+function returnPassPhrase(params) {
+  const { words, phraseLength = 4 } = params;
 
   if (words) {
     const arrOfWords = [];
@@ -131,5 +171,10 @@ function generatePassPhrase(phraseLength = 4) {
     return arrOfWords.join(' ');
   }
 
-  alert('Something wrong with phrase generating');
+  // TODO: make a better UI response
+  console.error('Something wrong with phrase generating');
 }
+
+phraseCopyBtn.onclick = () => {
+  copyToClipboard(phraseOutput.value);
+};
