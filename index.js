@@ -36,7 +36,7 @@ passBtn.onclick = () => {
       }
     }
 
-    const password = generatePassword(arrSelectedArrays);
+    const password = generatePass(arrSelectedArrays);
 
     passOutput.value = password;
   } else {
@@ -54,18 +54,18 @@ function checksCheckboxes(arrCheckboxes) {
   return result;
 }
 
-function generatePassword(arrSelectedArrays) {
-  let resultStr = '';
+function generatePass(arrSelectedArrays) {
+  const arrOfChars = [];
 
   for (let i = 0; i < lengthPass.value; i += 1) {
     const randomArrNum = getRandomInt(arrSelectedArrays.length);
     const randomArr = arrSelectedArrays[randomArrNum];
     const randomNumFromArr = getRandomInt(randomArr.length);
 
-    resultStr += randomArr[randomNumFromArr];
+    arrOfChars.push(randomArr[randomNumFromArr]);
   }
 
-  return resultStr;
+  return arrOfChars.join('');
 }
 
 function getRandomInt(max) {
@@ -97,4 +97,39 @@ function copyToClipboard(str) {
     document.getSelection().removeAllRanges();
     document.getSelection().addRange(selected);
   }
+}
+
+function readTextFile(file) {
+  const rawFile = new XMLHttpRequest();
+  const okStatus = 200;
+
+  rawFile.open('GET', file, false);
+  rawFile.onreadystatechange = () => {
+    if (rawFile.readyState === 4) {
+      if (rawFile.status === okStatus || rawFile.status === 0) {
+        return rawFile.responseText.split('\n');
+      }
+    }
+
+    return false;
+  };
+  rawFile.send(null);
+}
+
+function generatePassPhrase(phraseLength = 4) {
+  const words = readTextFile('./english.txt');
+
+  if (words) {
+    const arrOfWords = [];
+
+    for (let i = 0; i < phraseLength; i += 1) {
+      const randomWordIndex = getRandomInt(words.length);
+
+      arrOfWords.push(words[randomWordIndex]);
+    }
+
+    return arrOfWords.join(' ');
+  }
+
+  alert('Something wrong with phrase generating');
 }
