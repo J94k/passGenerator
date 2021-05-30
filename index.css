@@ -120,10 +120,8 @@ body {
 
 .generator__buttons-wrapper {
   display: flex;
-  /* justify-content: space-between; */
 }
 
-.generator__btn,
 .generator__btn {
   display: block;
   width: 100%;
@@ -141,12 +139,10 @@ body {
   margin-right: 0.8em;
 }
 
-.generator__btn:hover,
 .generator__btn:hover {
   background-color: var(--yellow);
 }
 
-.generator__btn:active,
 .generator__btn:active {
   transition: 0.05s;
   opacity: 0.7;
@@ -212,4 +208,39 @@ body {
   border: none;
   background-color: var(--gray);
   color: var(--color);
+}
+
+@media screen and (max-width: 750px) {
+  html {
+    overflow: hidden;
+  }
+
+  body {
+    padding-top: 0;
+  }
+
+  .generator {
+    height: 100vh;
+    width: 100vw;
+    border-radius: none;
+  }
+
+  .generator__container-output {
+    margin-bottom: 1rem;
+  }
+
+  .generator__output {
+    max-width: 100%;
+    width: 100vw;
+    margin-bottom: 1.2em;
+  }
+
+  .generator__buttons-wrapper {
+    flex-direction: column;
+  }
+
+  .generator__btn {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
 }
