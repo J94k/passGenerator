@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/dmmono/v5/aFTU7PB1QTsUX8KYthqQBA.woff2)
+    format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
 html {
   height: 100vh;
   width: 100vw;
@@ -6,16 +18,16 @@ html {
   justify-content: center;
   box-sizing: border-box;
   font-size: 1.25rem;
-  font-family: sans-serif;
+  font-family: 'DM Mono', sans-serif;
   letter-spacing: 0.1rem;
 
   --black: #070707;
   --dark: #111;
-  --light-dark: #1a1a1a;
+  --light-dark: #1b1b1b;
   --light: #fefefe;
-  --gray: #3d3d3d;
-  --pale-yellow: #cec46ee0;
-  --yellow: #ffef62;
+  --gray: #313131;
+  --pale-brand-color: #6ece73b9;
+  --brand-color: #62ff91b9;
   --background: var(--dark);
   --text: var(--light);
 
@@ -71,13 +83,13 @@ body {
 
 .generator__header {
   padding: 1.6rem;
-  border-bottom: 0.1rem solid var(--black);
+  box-shadow: 0 0 1rem 0.1rem var(--black);
 }
 
 .generator__header-tab {
   margin: 0 0.2em;
   padding: 0.5em 1em;
-  border-radius: 0.4em;
+  border-radius: 0.5em;
   border: 1px solid var(--gray);
   color: inherit;
   background-color: var(--dark);
@@ -103,10 +115,10 @@ body {
 .generator__output {
   max-width: 17em;
   margin-bottom: 0.8em;
-  padding: 0.7em 1.4em;
-  border-radius: 0.3em;
+  padding: 0.7em 1em;
+  border-radius: 0.5em;
   font-size: 1.4em;
-  border: 1px solid var(--pale-yellow);
+  border: 1px solid var(--pale-brand-color);
   opacity: 1;
   background-color: var(--gray);
   color: inherit;
@@ -126,11 +138,11 @@ body {
   display: block;
   width: 100%;
   padding: 0.6em 1.2em;
-  border-radius: 0.3em;
+  border-radius: 0.5em;
   font-size: 1.2em;
   border: none;
   box-shadow: 0 0 1em var(--black);
-  background-color: var(--pale-yellow);
+  background-color: var(--pale-brand-color);
   color: var(--background);
   transition: 0.3s;
 }
@@ -140,7 +152,7 @@ body {
 }
 
 .generator__btn:hover {
-  background-color: var(--yellow);
+  background-color: var(--brand-color);
 }
 
 .generator__btn:active {
@@ -186,18 +198,18 @@ body {
   width: 0.7em;
   height: 0.7em;
   border-radius: 0.1em;
-  border: 0.1em solid var(--yellow);
+  border: 0.1em solid var(--brand-color);
   transition: 0.2s;
 }
 
 .generator__options-list
   input[type='checkbox']:checked
   + .fake-checkbox::before {
-  background: var(--yellow);
+  background: var(--brand-color);
 }
 
 .generator__options-list.error .fake-checkbox::before {
-  border-color: red;
+  border-color: #f52a2a;
 }
 
 .length {
